@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Campus Care | Your Campus, Your Care</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f7f8ff;
+    color: #202957;
+    line-height: 1.6;
+}
+
+header {
+    background: white;
+    padding: 18px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    box-shadow: 0 3px 15px #252c5510;
+}
+
+.logo {
+    font-size: 27px;
+    font-weight: 800;
+    color: #5946d9;
+}
+
+.logo span {
+    color: #0ca88b;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+nav button {
+    background: transparent;
+    color: #34375e;
+    padding: 10px 14px;
+}
+
+button {
+    border: none;
+    border-radius: 12px;
+    padding: 12px 20px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 700;
+    transition: transform .2s, opacity .2s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    opacity: .9;
+}
+
+.hero {
+    padding: 65px 7%;
+    background: linear-gradient(120deg, #e8e6ff, #d9f8f0, #fff0e4);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.hero-content {
+    flex: 1 1 300px;
+}
+
+.tag {
+    display: inline-block;
+    background: white;
+    color: #5946d9;
+    border-radius: 30px;
+    padding: 7px 15px;
+    font-weight: 700;
+    margin-bottom: 18px;
+}
+
+.hero h1 {
+    font-size: clamp(38px, 6vw, 66px);
+    line-height: 1.12;
+    margin-bottom: 18px;
+}
+
+.hero h1 span {
+    color: #604ce1;
+}
+
+.hero p {
+    font-size: 18px;
+    max-width: 550px;
+    color: #555a78;
+    margin-bottom: 24px;
+}
+
+.primary {
+    background: #604ce1;
+    color: white;
+}
+
+.hero-art {
+    flex: 1 1 250px;
+    text-align: center;
+    background: linear-gradient(145deg, #c9c3ff, #a9efdd);
+    border-radius: 35px;
+    padding: 35px 15px;
+    font-size: 95px;
+    box-shadow: 0 18px 40px #4e43a51a;
+}
+
+.hero-art p {
+    font-size: 17px;
+    font-weight: 700;
+    margin: 10px auto 0;
+    color: #34375e;
+}
+
+section {
+    padding: 55px 7%;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #6d708a;
+    margin-bottom: 30px;
+}
+
+.services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px;
+}
+
+.card {
+    border-radius: 24px;
+    padding: 28px;
+    box-shadow: 0 8px 30px #2929560d;
+    transition: transform .2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.lost-card {
+    background: linear-gradient(135deg, #e2fff2, #d7f2ff);
+}
+
+.problem-card {
+    background: linear-gradient(135deg, #fff0df, #ffe2ef);
+}
+
+.card-icon {
+    font-size: 55px;
+    margin-bottom: 12px;
+}
+
+.card h3 {
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: #555a78;
+    margin-bottom: 20px;
+}
+
+.green {
+    background: #079b78;
+    color: white;
+}
+
+.coral {
+    background: #f26761;
+    color: white;
+}
+
+.purple {
+    background: #604ce1;
+    color: white;
+}
+
+.form-section {
+    display: none;
+    background: white;
+    border-radius: 25px;
+    max-width: 760px;
+    margin: 35px auto;
+    padding: 30px;
+    box-shadow: 0 10px 35px #29295612;
+}
+
+.form-section.active {
+    display: block;
+}
+
+.form-section h2 {
+    margin-bottom: 8px;
+}
+
+.form-section > p {
+    color: #6d708a;
+    margin-bottom: 22px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin-bottom: 16px;
+}
+
+label {
+    font-weight: 650;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #d8d9e8;
+    border-radius: 10px;
+    font: inherit;
+    background: #fcfcff;
+    color: #202957;
+}
+
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.form-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.secondary {
+    background: #eeeeFA;
+    color: #49436f;
+}
+
+.notice {
+    margin-top: 18px;
+    padding: 13px;
+    background: #e4fff3;
+    color: #087755;
+    border-radius: 10px;
+    display: none;
+    overflow-wrap: anywhere;
+}
+
+.features {
+    background: #eeedff;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 22px;
+    text-align: center;
+}
+
+.feature {
+    padding: 12px;
+}
+
+.feature-icon {
+    font-size: 35px;
+}
+
+.feature h3 {
+    margin: 8px 0;
+}
+
+.feature p {
+    color: #646783;
+    font-size: 14px;
+}
+
+footer {
+    background: #24264d;
+    color: white;
+    text-align: center;
+    padding: 28px 15px;
+}
+
+footer p {
+    color: #d4d4ee;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+@media (max-width: 600px) {
+    header {
+        padding: 16px 5%;
+    }
+
+    .hero, section {
+        padding: 35px 5%;
+    }
+
+    .hero-art {
+        font-size: 70px;
+    }
+
+    .form-section {
+        margin: 20px 5%;
+        padding: 20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">Campus <span>Care</span> 🎓</div>
+    <nav>
+        <button onclick="goHome()">Home</button>
+        <button onclick="showForm('lost')">Lost &amp; Found</button>
+        <button onclick="showForm('problem')">Report a Problem</button>
+    </nav>
+</header>
+
+<div class="hero" id="home">
+    <div class="hero-content">
+        <div class="tag">✨ A better campus starts here</div>
+        <h1>Your Campus.<br>Your <span>Care.</span></h1>
+        <p>
+            Lost something? Found an item? Facing a campus problem?
+            Campus Care helps students take action in one place.
+        </p>
+        <button class="primary" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">
+            Explore Services →
+        </button>
+    </div>
+
+    <div class="hero-art">
+        🏫 📚
+        <p>Report · Find · Improve</p>
+    </div>
+</div>
+
+<section id="services">
+    <h2 class="section-title">How can we help you? 💜</h2>
+    <p class="section-subtitle">Choose a service to get started.</p>
+
+    <div class="services">
+        <div class="card lost-card">
+            <div class="card-icon">🎒 🔑</div>
+            <h3>Lost &amp; Found</h3>
+            <p>
+                Lost your belongings or found something on campus?
+                Report it and help reunite items with their owners.
+            </p>
+            <button class="green" onclick="showForm('lost')">
+                Open Lost &amp; Found →
+            </button>
+        </div>
+
+        <div class="card problem-card">
+            <div class="card-icon">🛠️ 🏫</div>
+            <h3>Report a Problem</h3>
+            <p>
+                Broken fans, water issues, damaged desks, or cleanliness
+                problems? Tell the right campus department.
+            </p>
+            <button class="coral" onclick="showForm('problem')">
+                Report an Issue →
+            </button>
+        </div>
+    </div>
+
+    <div class="form-section" id="lost">
+        <h2>🎒 Lost &amp; Found</h2>
+        <p>Tell us about the item so it can be reunited with its owner.</p>
+
+        <form id="lostForm">
+            <div class="form-grid">
+                <div class="field">
+                    <label for="itemAction">What are you reporting?</label>
+                    <select id="itemAction" required>
+                        <option value="">Choose one</option>
+                        <option>Lost an item</option>
+                        <option>Found an item</option>
+                    </select>
+                </div>
+
+                <div class="field">
+                    <label for="studentId">College User ID</label>
+                    <input id="studentId" required placeholder="Enter your college ID">
+                </div>
+
+                <div class="field">
+                    <label for="itemName">Item name</label>
+                    <input id="itemName" required placeholder="e.g. Blue water bottle">
+                </div>
+
+                <div class="field">
+                    <label for="itemDate">Date</label>
+                    <input id="itemDate" type="date" required>
+                </div>
+            </div>
+
+            <div class="field">
+                <label for="itemLocation">Where was it lost or found?</label>
+                <input id="itemLocation" required placeholder="e.g. Library, Room 204">
+            </div>
+
+            <div class="field">
+                <label for="itemDescription">Description</label>
+                <textarea id="itemDescription" required placeholder="Describe the item and any identifying details"></textarea>
+            </div>
+
+            <div class="field">
+                <label for="itemPhoto">Upload a photo (optional)</label>
+                <input id="itemPhoto" type="file" accept="image/*">
+            </div>
+
+            <div class="form-actions">
+                <button class="green" type="submit">Submit Report</button>
+                <button class="secondary" type="button" onclick="goHome()">Back to Home</button>
+            </div>
+        </form>
+        <div class="notice" id="lostNotice" role="status"></div>
+    </div>
+
+    <div class="form-section" id="problem">
+        <h2>🛠️ Report a Campus Problem</h2>
+        <p>Give us the details so the appropriate department can respond.</p>
+
+        <form id="problemForm">
+            <div class="form-grid">
+                <div class="field">
+                    <label for="problemStudentId">College User ID</label>
+                    <input id="problemStudentId" required placeholder="Enter your college ID">
+                </div>
+
+                <div class="field">
+                    <label for="room">Classroom / Location</label>
+                    <input id="room" required placeholder="e.g. Block A, Room 204">
+                </div>
+
+                <div class="field">
+                    <label for="category">Problem category</label>
+                    <select id="category" required>
+                        <option value="">Choose a category</option>
+                        <option value="Electrical Maintenance">Electrical issue / Fan / Lights</option>
+                        <option value="Housekeeping">Cleanliness / Washroom</option>
+                        <option value="Plumbing">Water / Plumbing</option>
+                        <option value="IT Support">Wi-Fi / Computer / Projector</option>
+                        <option value="Furniture Maintenance">Desks / Chairs</option>
+                        <option value="Administration">Other campus issue</option>
+                    </select>
+                </div>
+
+                <div class="field">
+                    <label for="urgency">Priority</label>
+                    <select id="urgency" required>
+                        <option>Normal</option>
+                        <option>Urgent</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="field">
+                <label for="problemDescription">Describe the problem</label>
+                <textarea id="problemDescription" required placeholder="Explain what happened and where"></textarea>
+            </div>
+
+            <div class="field">
+                <label for="problemPhoto">Upload a photo (optional)</label>
+                <input id="problemPhoto" type="file" accept="image/*">
+            </div>
+
+            <div class="form-actions">
+                <button class="coral" type="submit">Submit Complaint</button>
+                <button class="secondary" type="button" onclick="goHome()">Back to Home</button>
+            </div>
+        </form>
+        <div class="notice" id="problemNotice" role="status"></div>
+    </div>
+</section>
+
+<section class="features">
+    <div class="feature">
+        <div class="feature-icon">💜</div>
+        <h3>Student Friendly</h3>
+        <p>Simple forms that are easy to use.</p>
+    </div>
+    <div class="feature">
+        <div class="feature-icon">🔒</div>
+        <h3>Privacy Matters</h3>
+        <p>Personal details should stay protected.</p>
+    </div>
+    <div class="feature">
+        <div class="feature-icon">⚡</div>
+        <h3>Right Department</h3>
+        <p>Choose the category that matches the issue.</p>
+    </div>
+    <div class="feature">
+        <div class="feature-icon">🤝</div>
+        <h3>Better Campus</h3>
+        <p>Small actions can make a big difference.</p>
+    </div>
+</section>
+
+<footer>
+    <h2>Campus Care 🎓</h2>
+    <p>Your campus, your care, your voice.</p>
+    <p>College project prototype · Report · Find · Improve</p>
+</footer>
+
+<script>
+function showForm(id) {
+    document.querySelectorAll('.form-section').forEach(function(section) {
+        section.classList.remove('active');
+    });
+
+    document.getElementById(id).classList.add('active');
+    document.getElementById(id).scrollIntoView({behavior: 'smooth'});
+}
+
+function goHome() {
+    document.querySelectorAll('.form-section').forEach(function(section) {
+        section.classList.remove('active');
+    });
+
+    document.getElementById('home').scrollIntoView({behavior: 'smooth'});
+}
+
+document.getElementById('lostForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const reportId = 'DEMO-' + Date.now().toString().slice(-6);
+    const action = document.getElementById('itemAction').value;
+    const name = document.getElementById('itemName').value;
+    const notice = document.getElementById('lostNotice');
+
+    notice.textContent = 'Demo submission received! Reference: ' + reportId +
+        '. Item: ' + name + '. Type: ' + action +
+        '. This prototype does not save reports to a server.';
+    notice.style.display = 'block';
+});
+
+document.getElementById('problemForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const reportId = 'DEMO-' + Date.now().toString().slice(-6);
+    const category = document.getElementById('category').value;
+    const notice = document.getElementById('problemNotice');
+
+    notice.textContent = 'Demo submission received! Reference: ' + reportId +
+        '. Assigned department: ' + category +
+        '. This prototype does not send the complaint to college staff.';
+    notice.style.display = 'block';
+});
+</script>
+
+</body>
+</html>
